@@ -1,0 +1,22 @@
+.box{
+    font-size: 50px;
+    background-color: antiquewhite;
+    width: 22%;
+    border: solid 5px red;
+    padding: 5px;
+    padding-right: 10%;
+    padding-left: 10px;
+    margin-top: 30px;
+    margin-left: 40%;
+}
+.ball{
+    background-color: rgb(90, 208, 196);
+    width: 100px;
+    height: 100px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 15px;
+    border-radius: 50%;
+    border: dotted 5px rgb(0, 32, 128);
+    padding: 20px;
+}

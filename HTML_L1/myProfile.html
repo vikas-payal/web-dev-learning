@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1><strong>Welcome to my Website !</strong></h1>
+    <hr>
+    <img src="c:\Users\ESHA\Downloads\pc.jpg" alt="myPic" height="300px"><hr>
+    <h2>  <em>Vikas Singh Payal</em></h2><hr>
+    <h3> <strong>High School || 12th</strong></h3><hr>
+    <h4><strong> I KNOW BASIC :- </strong></h4>
+    <ul>
+        <li> C++ </li>
+        <li>Arduino</li>
+        <li>Html</li>
+    </ul><hr>
+    <p> I hve Just Finished my first Ardunio Project 👇</p> 
+    <video  id ="Project" width="560" autoplay><source src="c:\Users\ESHA\Downloads\vidproject.mp4">vide not supported </video>
+    <hr>
+    <button onclick="playPause()" >Play</button>
+    <button onclick="makeBig()">Big</button>
+    <button onclick="makeSmall()">Small</button>
+    <button onclick="makeNormal()">Normal</button>
+    <button onclick="toggleBorder()">border</button>
+
+
+    <h4> Connect with me here 👇</h4>
+    <ul>
+        <li><a href="https://in.linkedin.com/">My_linkedin</a></li>
+        <li><a href="https://www.instagram.com/vikas.0_0x/">My_Instagram </a></li>
+        <li><a href="https://www.facebook.">My_Facebook</a></li>
+    </ul>
+   
+   <script>
+var myVideo = document.getElementById('Project');
+  function playPause(){
+    if (myVideo.paused){
+        myVideo.play();
+        console.log("video is playing");
+    }
+    else
+    {
+      console.log("video is paused");
+      myVideo.pause();
+
+    }
+    }
+
+  function makeBig() {
+      myVideo.width = 1080;
+  }
+
+  function makeSmall() {
+      myVideo.width = 320;
+  }
+
+  function makeNormal() {
+      myVideo.width = 560;
+  }
+
+  function addBorder(){
+    myVideo.style.border = "5px solid orange";
+  }
+  function removeBorder(){
+    myVideo.style.border = "0px solid white";
+  }
+
+  let isBorderActive = false;
+
+  function toggleBorder(){
+
+        if (!isBorderActive) {
+            addBorder();
+            isBorderActive =true;
+            console.log("border:"+isBorderActive);
+            
+        }
+        else
+        {
+            removeBorder();
+            isBorderActive =false;
+            console.log("border:"+isBorderActive);
+
+
+        }
+  }
+
+
+
+
+    </script>
+</body>
+</html>
