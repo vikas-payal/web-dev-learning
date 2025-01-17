@@ -1,0 +1,115 @@
+.heading{
+    display: flex;
+    justify-content: center;
+}
+
+.container{
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 25px;
+    height: 40vh;
+    gap: 3.33%;
+}
+
+.mini-container{
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 15px;
+    width: 100%;
+    height: 30vh;
+    gap: 3.33%;
+    color:#13110f;
+    /* background-color: black; */
+}
+.semi-mini-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+    height: 90%;
+    gap: 3.33%;
+    padding: 5px;
+}
+.mini-divs-one{
+    flex-direction: column;
+}
+
+.divs{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+     width: 30%;
+    height: 90%;
+    border-radius: 30px;
+}
+.mini-divs{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+     width: 30%;
+    height: 90%;
+    border-radius: 30px;
+}
+.micro-divs{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+     width: 30%;
+    height: 90%;
+    border-radius: 15px;
+    background-color: #31e12b;
+}
+.divs-one{
+    background-color: #ffecd1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    /* height: 100%; */
+    /* width: 100%; */
+}
+.divs-two{
+    background-color: #ff7d00;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+.divs-three{
+    background-color: #78290f;
+}
+.divs-four{
+    background-color: #3d290c84;
+}
+.divs-five{
+    background-color: #ff7d0084;
+}
+.divs-six{
+    background-color: #78290f84;
+}
+
+.mini-divs-one{
+    background-color: #ede0d4;
+}
+.mini-divs-two{
+    background-color: #e6ccb2;
+}
+.mini-divs-three{
+    background-color: #ddb892;
+}
+.mini-divs-four{
+    background-color: #784f34;
+}
+.mini-divs-five{
+    background-color: #b08968;
+}
+.mini-divs-six{
+    background-color: #9c6644;
+}
