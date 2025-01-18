@@ -1,6 +1,13 @@
 .heading{
     display: flex;
     justify-content: center;
+    height: 100%;
+}
+.title{
+    background-color: rgba(60, 173, 150, 0.818);
+    border-radius: 30px;
+    padding:10px;
+    color: #022014;
 }
 
 .container{

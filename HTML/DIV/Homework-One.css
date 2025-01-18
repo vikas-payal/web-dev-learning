@@ -1,0 +1,109 @@
+.Height{
+    justify-content: center;
+    align-items: center;
+    display: flex;
+  
+ }
+ .Inside-Height{
+     background-color:#d3f3f1;
+     color:#e9b7ce;
+     font-size: 50px;
+     padding: 10px;
+     border-radius: 15px;
+     padding-left: 50px;
+     padding-right: 50px;
+ 
+ }
+ .Container{
+     margin: 20px;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     font: 20px;
+     gap: 3%;
+     height: 40vh;
+ }
+ .Container-Two{
+   margin: 20px;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   font: 20px;
+   gap: 3%;
+   height: 40vh;
+ }
+ .div{
+     width: 40%;
+     height: 90%;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    border-radius: 20px;
+ }
+ .One{
+   background-color: #f94144;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   flex-direction: column;
+ }
+ .Two{
+   background-color: #f3722c;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   flex-direction: column;
+ }
+ .Three{
+   background-color: #f8961e;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   flex-direction: column;
+ }
+ .Five{
+   background-color: #f9c74f;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   flex-direction: column;
+ }
+ .Four{
+     background-color:#90be6d ;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     flex-direction: column;
+ }
+ .Six{
+   background-color: #43aa8b;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   flex-direction: column;
+ }
+ .Demon{
+    font-size: 30px;
+    color: white;
+    background-color: #2a2a2a;
+    padding: 10px;
+    border-radius: 15px;
+ }
+ .Inside-One{
+     flex-direction: row;
+     justify-content: center;
+     display: flex;
+     align-content: center;
+     width: 50vh;
+     height: 40vh;
+     gap: 3%;
+     border-radius: 20%;
+ }
+ .Column{
+     flex-direction: column;
+ }
+ .Radius img{
+    border-radius: 10%;
+ 
+ }
+ 
