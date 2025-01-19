@@ -1,18 +1,27 @@
+body{
+  background-image: linear-gradient(-45deg, #6b1313, #153969);
+}
+
 .Height{
     justify-content: center;
     align-items: center;
     display: flex;
-  
  }
  .Inside-Height{
-     background-color:#d3f3f1;
-     color:#e9b7ce;
+    background-image: linear-gradient(#b5F8,rgba(113, 26, 44, 0.333));
+     color:white;
      font-size: 50px;
      padding: 10px;
      border-radius: 15px;
      padding-left: 50px;
      padding-right: 50px;
- 
+  transition: 0.5s ease-in-out;
+ }
+
+
+ .Inside-Height:hover{
+  color: #f94144;
+  transform: translate3d(10px, 10px, 2px);
  }
  .Container{
      margin: 20px;
@@ -41,54 +50,62 @@
     border-radius: 20px;
  }
  .One{
-   background-color: #f94144;
-   display: flex;
+   /* background-image: linear-gradient();   */
+   background-image: radial-gradient(ellipse farthest-corner, rgb(210, 147, 117), rgb(6, 35, 24));
+  display: flex;
    justify-content: center;
    align-items: center;
    flex-direction: column;
  }
  .Two{
-   background-color: #f3722c;
+   background-image: radial-gradient(ellipse farthest-corner,#2ba6b2,#471069);
    display: flex;
    justify-content: center;
    align-items: center;
    flex-direction: column;
  }
  .Three{
-   background-color: #f8961e;
+  background-image: radial-gradient(ellipse farthest-corner,#52b788 ,#003049);
    display: flex;
    justify-content: center;
    align-items: center;
    flex-direction: column;
  }
  .Five{
-   background-color: #f9c74f;
+  background-image: radial-gradient(ellipse farthest-corner,#ac4927,#111011);
    display: flex;
    justify-content: center;
    align-items: center;
    flex-direction: column;
  }
  .Four{
-     background-color:#90be6d ;
+  background-image: radial-gradient(ellipse farthest-corner,#d9a647,#620a1a);
      display: flex;
      justify-content: center;
      align-items: center;
      flex-direction: column;
  }
  .Six{
-   background-color: #43aa8b;
+  background-image: radial-gradient(ellipse farthest-corner,#386f48,#181c1c);
    display: flex;
    justify-content: center;
    align-items: center;
    flex-direction: column;
  }
  .Demon{
-    font-size: 30px;
+    font-size: 24px;
     color: white;
     background-color: #2a2a2a;
     padding: 10px;
     border-radius: 15px;
+    transition: .4s ease-in-out;
  }
+ .Demon:hover{
+   transform: scale(1.1);
+   color: black;
+   background-color: white;
+ }
+
  .Inside-One{
      flex-direction: row;
      justify-content: center;
@@ -104,6 +121,15 @@
  }
  .Radius img{
     border-radius: 10%;
- 
+    border: 1px solid white;
+    box-shadow: white;
  }
- 
+ img{
+  transition: 0.4s ease-in-out;
+  box-shadow: 0 4px 8px #171616a1;
+ }
+ img:hover{
+  transform: scale(1.25);
+ }
+
+

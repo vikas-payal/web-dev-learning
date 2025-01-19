@@ -1,0 +1,951 @@
+
+.Container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    height: 40vh;
+    gap: 3.33%;
+}
+.Div{
+    width: 30%;
+    height: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+}
+.mini-Div{
+    width: 40%;
+    height: 90%;
+    display: flex;
+    border-radius: 15%;
+    justify-content: center;
+    align-items: center;
+}
+.One{
+    background-color:#eddcd2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.Two{
+    background-color:#fff1e6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.Three{
+    background-color:#f0efeb;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.Four{
+    background-color:#ddbea9 ;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.Five{
+    background-color:#a5a58d ;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.Six{
+    background-color:#b7b7a4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.Inside-One{
+    flex-direction: row;
+    justify-content: center;
+    display: flex;
+    align-content: center;
+    gap: 3%;
+    border-radius: 20%;
+    margin: 10px;
+    width: 90%;
+    height: 50%;
+}
+ .Inside-One-One{
+    background-color: #84e3c8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  .Inside-One-Two{
+    background-color: #a8e6cf;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+  }
+  .Inside-One-Three{
+    background-color: #dcedc1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  .Inside-One-Four{
+    background-color: #ffd3b6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  .Inside-One-Five{
+    background-color: #ffaaa5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  .Inside-One-Six{
+    background-color: #ff8b94;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+.Inside-Two{
+    flex-direction: row;
+    justify-content: center;
+    display: flex;
+    align-content: center;
+    gap: 3%;
+    border-radius: 20%;
+    margin: 10px;
+    width: 90%;
+    height: 50%;
+}
+.Inside-Three{
+    flex-direction: row;
+    justify-content: center;
+    display: flex;
+    align-content: center;
+    gap: 3%;
+    border-radius: 20%;
+    margin: 10px;
+    width: 90%;
+    height: 50%; 
+}
+.Inside-Four{
+    flex-direction: row;
+    justify-content: center;
+    display: flex;
+    align-content: center;
+    gap: 3%;
+    border-radius: 20%;
+    margin: 10px;
+    width: 90%;
+    height: 50%; 
+}
+.Inside-Five{
+    flex-direction: row;
+    justify-content: center;
+    display: flex;
+    align-content: center;
+    gap: 3%;
+    border-radius: 20%;
+    margin: 10px;
+    width: 90%;
+    height: 50%; 
+}
+.Inside-Six{
+    flex-direction: row;
+    justify-content: center;
+    display: flex;
+    align-content: center;
+    gap: 3%;
+    border-radius: 20%;
+    margin: 10px;
+    width: 90%;
+    height: 50%; 
+}
+
+.Inside-Two-One{
+    background-color: #887caf;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  .Inside-Two-Two{
+    background-color: #9688c0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+  }
+  .Inside-Two-Three{
+    background-color: #a596d3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  .Inside-Two-Four{
+    background-color: #b6a5e8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  .Inside-Two-Five{
+    background-color: #c8b6ff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  .Inside-Two-Six{
+    background-color: #cdbdff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  .Inside-Three-One{
+    background-color: #00296b;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  .Inside-Three-Two{
+    background-color: #003f88;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+  }
+  .Inside-Three-Three{
+    background-color: #00509d;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  .Inside-Three-Four{
+    background-color: #fdc500;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  .Inside-Three-Five{
+    background-color: #fdc500;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  .Inside-Three-Six{
+    background-color: #ffdd33;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  .Inside-Four-One{
+    background-color: #6434e9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  .Inside-Four-Two{
+    background-color: #2c7ce5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+  }
+  .Inside-Four-Three{
+    background-color: #49cc5c;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  .Inside-Four-Four{
+    background-color: #f8c421;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  .Inside-Four-Five{
+    background-color: #fb6640;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  .Inside-Four-Six{
+    background-color: #f82553;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  .Inside-Five-One{
+    background-color: #f4f1de;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  .Inside-Five-Two{
+    background-color: #e07a5f;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+  }
+  .Inside-Five-Three{
+    background-color: #3d405b;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  .Inside-Five-Four{
+    background-color: #5f797b;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  .Inside-Five-Five{
+    background-color: #81b29a;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  .Inside-Five-Six{
+    background-color: #f2cc8f;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  .Inside-Six-One{
+    background-color: #4aa022;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  .Inside-Six-Two{
+    background-color: #dc2b34;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+  }
+  .Inside-Six-Three{
+    background-color: #5bce68;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  .Inside-Six-Four{
+    background-color: #8fcb27;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  .Inside-Six-Five{
+    background-color: #ea0c20;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  .Inside-Six-Six{
+    background-color: #8f230e;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+.inside-One-Container{
+    justify-content: center;
+    display: flex;
+    align-content: center;
+    gap: 3%;
+    margin: 10px;
+    width: 90%;
+    height: 70%; 
+}
+.Inside-One-One-1{
+    background-color:#8ecae6;
+}
+.Inside-One-One-2{
+    background-color:#219ebc;
+}
+.Inside-One-One-3{
+    background-color:#126782;
+}
+.Inside-One-One-4{
+    background-color:#023047;
+}
+.Inside-One-One-5{
+    background-color:#ffb703;
+}
+.Inside-One-One-6{
+    background-color:#fd9e02;
+}
+.Inside-One-Two-1{
+    background-color: #f47068;
+}
+.Inside-One-Two-2{
+    background-color: #ffb3ae;
+}
+.Inside-One-Two-3{
+    background-color: #fff4f1;
+}
+.Inside-One-Two-4{
+    background-color: #1697a6;
+}
+.Inside-One-Two-5{
+    background-color: #0e606b;
+}
+.Inside-One-Two-6{
+    background-color: #ffc24b;
+}
+.Inside-One-Three-1{
+    background-color:#797d62;
+}
+.Inside-One-Three-2{
+    background-color:#9b9b7a;
+}
+.Inside-One-Three-3{
+    background-color:#d9ae94;
+}
+.Inside-One-Three-4{
+    background-color:#f1dca7;
+}
+.Inside-One-Three-5{
+    background-color:#d08c60;
+}
+.Inside-One-Three-6{
+    background-color:#997b66;
+}
+.Inside-One-Four-1{
+    background-color:#fd5901 ;
+}
+.Inside-One-Four-2{
+    background-color:#f78104 ;
+}
+.Inside-One-Four-3{
+    background-color:#faab36 ;
+}
+.Inside-One-Four-4{
+    background-color:#249ea0 ;
+}
+.Inside-One-Four-5{
+    background-color:#008083 ;
+}
+.Inside-One-Four-6{
+    background-color:#005f60 ;
+}
+.Inside-One-Five-1{
+    background-color:#fd0363 ;
+}
+.Inside-One-Five-2{
+    background-color:#cc095d;
+}
+.Inside-One-Five-3{
+    background-color:#9c1057 ;
+}
+.Inside-One-Five-4{
+    background-color:#6b1650 ;
+}
+.Inside-One-Five-5{
+    background-color:#3b1d4a ;
+}
+.Inside-One-Five-6{
+    background-color:#0a2344 ;
+}
+.Inside-One-Six-1{
+    background-color: #6c5d4e;
+}
+.Inside-One-Six-2{
+    background-color: #826a48;
+}
+.Inside-One-Six-3{
+    background-color: #ae8853;
+}
+.Inside-One-Six-4{
+    background-color: #ae8853;
+}
+.Inside-One-Six-5{
+    background-color: #9d684b;
+}
+.Inside-One-Six-6{
+    background-color: #cbb874;
+}
+
+.Inside-Two-One-1{
+    background-color:#;
+}
+.Inside-Two-One-2{
+    background-color:#;
+}
+.Inside-Two-One-3{
+    background-color:#;
+}
+.Inside-Two-One-4{
+    background-color:#;
+}
+.Inside-Two-One-5{
+    background-color:#;
+}
+.Inside-Two-One-6{
+    background-color:#;
+}
+.Inside-Two-Two-1{
+    background-color: #;
+}
+.Inside-Two-Two-2{
+    background-color: #;
+}
+.Inside-Two-Two-3{
+    background-color: #;
+}
+.Inside-Two-Two-4{
+    background-color: #;
+}
+.Inside-Two-Two-5{
+    background-color: #;
+}
+.Inside-Two-Two-6{
+    background-color: #;
+}
+.Inside-Two-Three-1{
+    background-color:#;
+}
+.Inside-Two-Three-2{
+    background-color:#;
+}
+.Inside-Two-Three-3{
+    background-color:#;
+}
+.Inside-Two-Three-4{
+    background-color:#;
+}
+.Inside-Two-Three-5{
+    background-color:#;
+}
+.Inside-Two-Three-6{
+    background-color:#;
+}
+.Inside-Two-Four-1{
+    background-color:# ;
+}
+.Inside-Two-Four-2{
+    background-color:# ;
+}
+.Inside-Two-Four-3{
+    background-color:# ;
+}
+.Inside-Two-Four-4{
+    background-color:# ;
+}
+.Inside-Two-Four-5{
+    background-color:# ;
+}
+.Inside-Two-Four-6{
+    background-color:# ;
+}
+.Inside-Two-Five-1{
+    background-color:# ;
+}
+.Inside-Two-Five-2{
+    background-color:#;
+}
+.Inside-Two-Five-3{
+    background-color:# ;
+}
+.Inside-Two-Five-4{
+    background-color:# ;
+}
+.Inside-Two-Five-5{
+    background-color:# ;
+}
+.Inside-Two-Five-6{
+    background-color:# ;
+}
+.Inside-Two-Six-1{
+    background-color: #;
+}
+.Inside-Two-Six-2{
+    background-color: #;
+}
+.Inside-Two-Six-3{
+    background-color: #;
+}
+.Inside-Two-Six-4{
+    background-color: #;
+}
+.Inside-Two-Six-5{
+    background-color: #;
+}
+.Inside-Two-Six-6{
+    background-color: #;
+}
+
+.Inside-Three-One-1{
+    background-color:#;
+}
+.Inside-Three-One-2{
+    background-color:#;
+}
+.Inside-Three-One-3{
+    background-color:#;
+}
+.Inside-Three-One-4{
+    background-color:#;
+}
+.Inside-Three-One-5{
+    background-color:#;
+}
+.Inside-Three-One-6{
+    background-color:#;
+}
+.Inside-Three-Three-1{
+    background-color: #;
+}
+.Inside-Three-Three-2{
+    background-color: #;
+}
+.Inside-Three-Three-3{
+    background-color: #;
+}
+.Inside-Three-Three-4{
+    background-color: #;
+}
+.Inside-Three-Three-5{
+    background-color: #;
+}
+.Inside-Three-Three-6{
+    background-color: #;
+}
+.Inside-Three-Three-1{
+    background-color:#;
+}
+.Inside-Three-Three-2{
+    background-color:#;
+}
+.Inside-Three-Three-3{
+    background-color:#;
+}
+.Inside-Three-Three-4{
+    background-color:#;
+}
+.Inside-Three-Three-5{
+    background-color:#;
+}
+.Inside-Three-Three-6{
+    background-color:#;
+}
+.Inside-Three-Four-1{
+    background-color:# ;
+}
+.Inside-Three-Four-2{
+    background-color:# ;
+}
+.Inside-Three-Four-3{
+    background-color:# ;
+}
+.Inside-Three-Four-4{
+    background-color:# ;
+}
+.Inside-Three-Four-5{
+    background-color:# ;
+}
+.Inside-Three-Four-6{
+    background-color:# ;
+}
+.Inside-Three-Five-1{
+    background-color:# ;
+}
+.Inside-Three-Five-2{
+    background-color:#;
+}
+.Inside-Three-Five-3{
+    background-color:# ;
+}
+.Inside-Three-Five-4{
+    background-color:# ;
+}
+.Inside-Three-Five-5{
+    background-color:# ;
+}
+.Inside-Three-Five-6{
+    background-color:# ;
+}
+.Inside-Three-Six-1{
+    background-color: #;
+}
+.Inside-Three-Six-2{
+    background-color: #;
+}
+.Inside-Three-Six-3{
+    background-color: #;
+}
+.Inside-Three-Six-4{
+    background-color: #;
+}
+.Inside-Three-Six-5{
+    background-color: #;
+}
+.Inside-Three-Six-6{
+    background-color: #;
+}
+
+.Inside-Four-One-1{
+    background-color:#;
+}
+.Inside-Four-One-2{
+    background-color:#;
+}
+.Inside-Four-One-3{
+    background-color:#;
+}
+.Inside-Four-One-4{
+    background-color:#;
+}
+.Inside-Four-One-5{
+    background-color:#;
+}
+.Inside-Four-One-6{
+    background-color:#;
+}
+.Inside-Four-Four-1{
+    background-color: #;
+}
+.Inside-Four-Four-2{
+    background-color: #;
+}
+.Inside-Four-Four-3{
+    background-color: #;
+}
+.Inside-Four-Four-4{
+    background-color: #;
+}
+.Inside-Four-Four-5{
+    background-color: #;
+}
+.Inside-Four-Four-6{
+    background-color: #;
+}
+.Inside-Four-Four-1{
+    background-color:#;
+}
+.Inside-Four-Four-2{
+    background-color:#;
+}
+.Inside-Four-Four-3{
+    background-color:#;
+}
+.Inside-Four-Four-4{
+    background-color:#;
+}
+.Inside-Four-Four-5{
+    background-color:#;
+}
+.Inside-Four-Four-6{
+    background-color:#;
+}
+.Inside-Four-Four-1{
+    background-color:# ;
+}
+.Inside-Four-Four-2{
+    background-color:# ;
+}
+.Inside-Four-Four-3{
+    background-color:# ;
+}
+.Inside-Four-Four-4{
+    background-color:# ;
+}
+.Inside-Four-Four-5{
+    background-color:# ;
+}
+.Inside-Four-Four-6{
+    background-color:# ;
+}
+.Inside-Four-Five-1{
+    background-color:# ;
+}
+.Inside-Four-Five-2{
+    background-color:#;
+}
+.Inside-Four-Five-3{
+    background-color:# ;
+}
+.Inside-Four-Five-4{
+    background-color:# ;
+}
+.Inside-Four-Five-5{
+    background-color:# ;
+}
+.Inside-Four-Five-6{
+    background-color:# ;
+}
+.Inside-Four-Six-1{
+    background-color: #;
+}
+.Inside-Four-Six-2{
+    background-color: #;
+}
+.Inside-Four-Six-3{
+    background-color: #;
+}
+.Inside-Four-Six-4{
+    background-color: #;
+}
+.Inside-Four-Six-5{
+    background-color: #;
+}
+.Inside-Four-Six-6{
+    background-color: #;
+}
+
+.Inside-Five-One-1{
+    background-color:#;
+}
+.Inside-Five-One-2{
+    background-color:#;
+}
+.Inside-Five-One-3{
+    background-color:#;
+}
+.Inside-Five-One-4{
+    background-color:#;
+}
+.Inside-Five-One-5{
+    background-color:#;
+}
+.Inside-Five-One-6{
+    background-color:#;
+}
+.Inside-Five-Five-1{
+    background-color: #;
+}
+.Inside-Five-Five-2{
+    background-color: #;
+}
+.Inside-Five-Five-3{
+    background-color: #;
+}
+.Inside-Five-Five-4{
+    background-color: #;
+}
+.Inside-Five-Five-5{
+    background-color: #;
+}
+.Inside-Five-Five-6{
+    background-color: #;
+}
+.Inside-Five-Five-1{
+    background-color:#;
+}
+.Inside-Five-Five-2{
+    background-color:#;
+}
+.Inside-Five-Five-3{
+    background-color:#;
+}
+.Inside-Five-Five-4{
+    background-color:#;
+}
+.Inside-Five-Five-5{
+    background-color:#;
+}
+.Inside-Five-Five-6{
+    background-color:#;
+}
+.Inside-Five-Five-1{
+    background-color:# ;
+}
+.Inside-Five-Five-2{
+    background-color:# ;
+}
+.Inside-Five-Five-3{
+    background-color:# ;
+}
+.Inside-Five-Five-4{
+    background-color:# ;
+}
+.Inside-Five-Five-5{
+    background-color:# ;
+}
+.Inside-Five-Five-6{
+    background-color:# ;
+}
+.Inside-Five-Five-1{
+    background-color:# ;
+}
+.Inside-Five-Five-2{
+    background-color:#;
+}
+.Inside-Five-Five-3{
+    background-color:# ;
+}
+.Inside-Five-Five-4{
+    background-color:# ;
+}
+.Inside-Five-Five-5{
+    background-color:# ;
+}
+.Inside-Five-Five-6{
+    background-color:# ;
+}
+.Inside-Five-Six-1{
+    background-color: #;
+}
+.Inside-Five-Six-2{
+    background-color: #;
+}
+.Inside-Five-Six-3{
+    background-color: #;
+}
+.Inside-Five-Six-4{
+    background-color: #;
+}
+.Inside-Five-Six-5{
+    background-color: #;
+}
+.Inside-Five-Six-6{
+    background-color: #;
+}
+
+
+
+
+
+  
