@@ -1,0 +1,67 @@
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+}
+.Monitor{
+    justify-content: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+}
+.Outside{
+    background-color: black;
+    width: 450px;
+    height: 300px;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    color: black;
+    border-radius: 12px;
+    flex-direction: column;
+    
+}
+.Inside{
+    background-color:rgb(0, 163, 222);
+    width:420px;
+    height: 260px;
+    border-radius: 12px;
+}
+.Button{
+    width: 10px;
+    height: 10px;
+    background-color: white;
+    border-radius: 50%;
+    
+}
+.row{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    margin-top: 10px;
+    transform: translateX(-160px);
+}
+.One{
+    background-color: red;
+}
+.Two, .Three{
+    background-color: gray;
+}
+.Rectangle{
+    width: 60px;
+    /* height: 40px; */
+    border-bottom: 40px solid gray;
+    border-left: 20px solid white;
+    border-right: 20px solid white;
+    background-color: gray;
+}
+.Stand{
+    width: 200px;
+    height: 30px;
+    background-color: black;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
