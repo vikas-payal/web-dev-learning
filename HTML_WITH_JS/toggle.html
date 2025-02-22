@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="toggle.css">
+</head>
+<body>
+    <div class="container">
+        <button onclick="change()" id="btn1">click</button>
+        <p class="p1" id="p-one">Green</p>
+    </div>
+    <script>
+
+        let isLedToggle = 'green'
+
+        function change() {
+            const div=document.getElementById("p-one");
+            if (isLedToggle == 'green') {
+                div.style.backgroundColor='red';
+                div.innerText='red'
+                isLedToggle = 'red'
+            } 
+            else if (isLedToggle == 'red') 
+             {
+                div.style.backgroundColor='green';
+                div.innerText='green'
+                isLedToggle = 'green'
+            }
+
+
+            }
+
+
+    </script>
+</body>
+</html>
