@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="array.css">
+</head>
+<body>
+    <div class="container">
+        <div class="mini-contaienr-one">
+            <button id="btn-one" class="btn one" >Smashed Roaties</button>
+            <button id="btn-two" class="btn two">Waffle nachos</button>
+            <button id="btn-three" class="btn three">American gyros</button>
+            <button id="btn-four" class="btn four">Cinnamon churros</button>
+        </div>
+        <div class="mini-container-two" id="mini-container-1">
+            <p id="p-1">Dish Name </p>
+            <p id="p-2">How To Make It</p>
+        </div>
+    </div>
+    <script>
+
+        const dish=["Smashed roaties","Waffle nachos","American gyros","Cinnamon churros"]
+        const material=[
+            ["Heat oven to 200C/180Cfan/gas 6. Put the potatoes in a large pan filled with cold salted water. Bring to the boil and cook for 15 mins until a cutlery knife can be inserted into the centre of a potato with only a little resistance, then drain and steam-dry. Arrange the potatoes in a large roasting tin, leaving enough space between each one so that they have room to spread once smashed. Using a fish slice, push down on each of the potatoes to break them up slightly. Don’t worry if some break up completely, it just means more crispy bits. Season well and drizzle over the oil. Roast for 1 hr, turning once, until golden and crispy."],
+            ["Cook waffles per package directions. Transfer to cutting board and cut into wedges. Heat oven to 450°F and line rimmed baking sheet with parchment paper. Arrange waffles on top.Heat 1 teaspoon oil in medium nonstick skillet on medium. Add chorizo and cook until browned, 2 to 3 minutes per side. Transfer to plate. Wipe out skillet and heat remaining 2 tsp oil on medium. Add eggs and cook, stirring often, until eggs begin to set. Season with 1/4 tsp each salt and pepper.scatter chorizo, eggs and cheese over waffles and roast until cheese melts, 2 min. Spoon pico de gallo over top and serve. "],
+            ["Preheat oven to 350 degrees F (175 degrees C). Lightly oil a 9x13-inch baking dish. Line with parchment paper that extends up the sides. Turn the parchment paper over so the oiled side is up.Place ground lamb and beef in a mixing bowl. Add onions, garlic, rosemary, oregano, salt, pepper, cumin, paprika, cinnamon, cayenne pepper, and bread crumbs. Mix until well combined. Transfer to prepared baking dish and press the meat mixture firmly into the dish in an even layer that extends to the edges. Meat mixture should be packed and fairly dense.Bake in preheated oven until nicely browned, 40 to 45 minutes. An instant-read thermometer inserted into the center should read at least 160 degrees F (70 degrees C). Cool to room temperature. Transfer to a plate. Cover with plastic wrap and refrigerate until chilled, 1 to 2 hours.Transfer meat to a cutting board. Cut into 3 pieces crosswise. Slice each piece into 1/8-inch thick slices as you need them.Heat oil in a skillet over medium-high heat. Cook slices until browned, about 2 minutes per side."],
+            ["Make sauce: In small saucepan, with fork, combine sugar and 2 tablespoons water. Cook on medium, swirling pot as necessary, until amber in color, 4 to 5 minutes. Remove from heat and whisk in butter (it will sputter), then whisk in heavy cream, cocoa powder, and salt to dissolve. Add chocolate and let sit 3 minutes, then stir until melted and smooth (if desired, use an immersion blender to get it extra smooth and silky).Make churros: In medium saucepan, cook cinnamon stick on medium until fragrant, about 2 minutes. Add olive oil, 1 cup water, 1 tablespoon sugar, and salt and bring to a boil. Discard cinnamon stick, then remove from heat; quickly stir in flour with wooden spoon and let sit.Fill medium saucepan fitted with a candy thermometer with 4 inches vegetable oil and heat on medium until temperature registers 350°F.Meanwhile, transfer hot churro batter to large bowl. Using electric mixer on low, beat 1 minute to cool slightly. Beat in egg (dough will be smooth and shiny). Transfer batter to pastry bag fitted with large star tip.Working in 4 batches, "]
+        ]
+        function dishes(dish_index) {
+            const divOne=document.getElementById('p-1');
+            const divTwo=document.getElementById('p-2');
+
+            const convertedMaterial = new String (material[dish_index])
+            // const newLineMaterial = convertedMaterial.replace('.', '<br>')
+            const newLineMaterial = convertedMaterial.split('.');
+
+            divOne.innerText=dish[dish_index];
+            // divTwo.innerText=material[dish_index];
+            divTwo.innerHTML=newLineMaterial;
+        }
+
+        const btn_one = document.getElementById('btn-one');
+        btn_one.addEventListener('click' , function ()  {dishes(0)});
+
+        const btn_two = document.getElementById('btn-two');
+        btn_two.addEventListener('click' , function ()  {dishes(1)});
+
+        const btn_three = document.getElementById('btn-three');
+        btn_three.addEventListener('click' , function ()  {dishes(2)});
+
+        const btn_four = document.getElementById('btn-four');
+        btn_four.addEventListener('click' , function ()  {dishes(3)});
+
+    </script>
+</body>
+</html>

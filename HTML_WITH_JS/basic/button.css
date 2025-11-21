@@ -1,0 +1,35 @@
+.container{
+    display: flex;
+    gap: 4px;
+}
+.btn{
+  border-radius: 5px;
+}
+.inside-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+.span{
+    margin-top: 3px;
+    width: 50px;
+    height: 20px;
+    border-radius: 3px;
+    text-align: center;
+}
+.one{
+  background-color:#606c38;
+}
+.two{
+    background-color: #283618;
+}
+.three{
+    background-color:#fefae0 ;
+}
+.four{
+    background-color:#dda15e;
+}
+.five{
+    background-color: #bc6c25;
+}

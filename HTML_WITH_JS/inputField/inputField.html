@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Input Field</title>
+    <link rel="stylesheet" href="inputField.css">
+</head>
+<body>
+
+     <div class="container">
+
+         <div class="toDoList">
+
+            <input id="input" class="toDoListText" type="text" placeholder="To Do List">
+            <button id="add-task" class="addTask">Add text</button>
+
+        </div>
+        <div class="collection">
+            <div id="text-view" class="textView"></div>
+            <!-- <div id="button-view" class="buttonView"></div> -->
+        </div>
+
+     </div>
+
+
+     <script>
+        const addTaskbtn = document.getElementById('add-task');
+        const taskView=document.getElementById("text-view");
+        // const buttonView=document.getElementById("button-view");
+        const input = document.getElementById('input'); 
+
+
+
+
+        addTaskbtn.addEventListener('click', addTask);
+
+        function addTask(params) {
+            const li = document.createElement('li');
+            const button=document.createElement('button');
+
+            if ((input.value).trim() === '') return; 
+
+            console.log('added task');    
+            li.textContent = input.value;
+
+            taskView.appendChild(li);
+            li.appendChild(button);
+
+            button.innerHTML="<div class='cancel-icon'>x</div>";
+            button.addEventListener('click',removeTask);
+
+            function removeTask(params) {
+            li.remove();
+            button.remove();
+            
+            }
+
+        }
+
+        
+     </script>
+</body>
+</html>

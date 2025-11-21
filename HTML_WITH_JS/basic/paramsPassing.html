@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="button.css">
+</head>
+<body>
+  <DIV class="container">
+     <div class="inside-container">
+        <button  onclick="changeDivColor('span-first')" class="btn" id="btn-one">Click</button>
+        <span class="span one" id="span-first">One</span>
+     </div>
+     <div class="inside-container">
+        <button onclick="changeDivColor('span-second')" class="btn" id="btn-two">Click</button>
+        <span class="span two" id="span-second">two</span>
+     </div>     
+     <div class="inside-container">
+        <button onclick="changeDivColor('span-third')" class="btn" id="btn-three">Click</button>
+        <span class="span three" id="span-third">three</span>
+     </div>    
+      <div class="inside-container">
+        <button onclick="changeDivColor('span-fourth')" class="btn" id="btn-four">Click</button>
+        <span class="span four" id="span-fourth">four</span>
+     </div>  
+        <div class="inside-container">
+        <button onclick="changeDivColor('span-fifth')" class="btn" id="btn-five">Click</button>
+        <span class="span five" id="span-fifth">five</span>
+     </div>
+  </DIV>
+
+    <script>
+
+        function changeDivColor(id) {
+            const div1 = document.getElementById(id);
+            div1.style.backgroundColor = '#8ecae6';
+            div1.innerText = "Clicked"
+        }     
+         
+        
+    </script>
+</body>
+</html>

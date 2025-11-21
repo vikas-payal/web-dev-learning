@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="simpleInterst.css">
+</head>
+<body>
+    <div class="container">
+        <div class="mincontainer-one" id="mini-one">
+            P:<input type="number" name="Principle" id="principle" >
+            R:<input type="number" name="Rate of interst" id="rate">
+            T:<input type="number" name="Time in year" id="time">
+            <button id="btn-one">click</button >
+        </div>
+        ans:
+        <div class="mincontainer-two" id="mini-two">
+            the ans will be displayed here
+        </div>
+
+    </div>
+<script>
+    const btn1=document.getElementById('btn-one');
+    const ansDiv=document.getElementById('mini-two');
+    function answer() {
+        console.log("calculating");
+        
+        const div1=parseFloat(document.getElementById('principle').value);
+        const div2=parseFloat(document.getElementById('rate').value);
+        const div3=parseFloat(document.getElementById('time').value);
+        const total=(div1*div2*div3)/100;
+        ansDiv.innerHTML=total;
+        console.log(`Ans : ${total}`);
+        
+    }
+    btn1.addEventListener('click', answer );
+</script>
+</body>
+</html>

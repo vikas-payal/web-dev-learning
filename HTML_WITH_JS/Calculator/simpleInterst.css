@@ -1,0 +1,14 @@
+.container{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 10px;
+
+
+}
+#mini-two{
+    width: 517px;
+    height: 30px;
+    /* background-color: black; */
+    /* color: white; */
+}

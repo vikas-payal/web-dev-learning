@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="calculator.css">
+</head>
+<body>
+
+    <div class="container">
+
+        <div class="calculator-body">
+
+            <div class="value">
+                <div><input type="number" id="num-one"></div>
+                <div><input type="number" id="num-two"></div>
+            </div>
+
+            <div class="answer" id="ans">
+
+            </div>
+
+            <div class="operation"></div>
+            <button id="btn1" >+</button>
+            <button id="btn2">-</button>
+            <button id="btn3">*</button>
+            <button id="btn4">/</button>
+
+
+        </div>
+
+    </div>
+    <script>
+
+        const button1=document.getElementById('btn1');
+        const button2=document.getElementById('btn2');
+        const button3=document.getElementById('btn3');
+        const button4=document.getElementById('btn4');
+        const ans1=document.getElementById('ans');
+    
+        function add() {
+            const div1=parseFloat(document.getElementById("num-one").value);
+            const div2=parseFloat(document.getElementById('num-two').value);
+            ans1.innerHTML=div1+div2;
+        }
+        function subtract() {
+            const div1=parseFloat(document.getElementById("num-one").value);
+            const div2=parseFloat(document.getElementById('num-two').value); 
+            ans1.innerHTML=div1-div2;
+        }
+        function multiple() {
+            const div1=parseFloat(document.getElementById("num-one").value);
+            const div2=parseFloat(document.getElementById('num-two').value); 
+            ans1.innerHTML=div1*div2;
+        }
+        function divide() {
+            const div1=parseFloat(document.getElementById("num-one").value);
+            const div2=parseFloat(document.getElementById('num-two').value);
+            ans1.innerHTML=div1/div2
+        }
+        
+        button1.addEventListener('click',add);
+        button2.addEventListener('click',subtract);
+        button3.addEventListener('click',multiple);
+        button4.addEventListener('click',divide);
+          
+    
+    </script>
+    
+</body>
+</html>
