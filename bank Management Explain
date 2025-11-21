@@ -1,0 +1,210 @@
+⭐ Why we use SQL in this Banking Project?
+
+SQL (database) is used to store and manage data permanently.
+
+Without SQL → data is stored in Python dictionary → lost every time program closes.
+With SQL → data is saved in database → never lost, even after shutdown.
+
+
+⭐ 1. Connecting to MySQL Database
+db = mysql.connector.connect(
+    host="localhost",
+    user="root",
+    password="",
+    database="bankdb"
+)
+cursor = db.cursor()
+
+✔️ What happens here?
+
+Python connects to your MySQL server.
+
+host="localhost" → your own computer
+
+user="root" → main MySQL user
+
+password="" → leave empty or write your MySQL password
+
+database="bankdb" → your database name
+
+cursor → used to run SQL commands (SELECT, INSERT, UPDATE etc.)
+
+➡️ Think of cursor as a pen that writes into the database.
+
+
+
+⭐ 2. LOGIN Function
+def login():
+    print("=== LOGIN ===")
+    username = input("Enter username: ")
+    password = input("Enter password: ")
+
+    cursor.execute("SELECT * FROM users WHERE username=%s AND password=%s",
+                   (username, password))
+    if cursor.fetchone():
+        print("Login Successful!\n")
+        return True
+    else:
+        print("Login Failed! Wrong username or password.\n")
+        return False
+
+✔️ What this does?
+
+Asks for username & password
+
+Checks in SQL table users
+
+If found → login success
+
+If not → login fail
+
+➡️ Simple. Like Instagram login but very basic.
+
+
+
+⭐ 3. Create Accounts Table
+cursor.execute("""
+CREATE TABLE IF NOT EXISTS accounts (
+    acc_no VARCHAR(10) PRIMARY KEY,
+    name VARCHAR(50),
+    balance DOUBLE
+)
+""")
+
+✔️ Why?
+
+Creates accounts table only once
+
+Stores account number, name, balance
+
+IF NOT EXISTS → prevents duplicate table error
+
+➡️ Python makes sure your table exists before doing anything.
+
+
+
+⭐ 4. Create Account Function
+def create_account():
+    acc_no = input("Enter new account number: ")
+
+    cursor.execute("SELECT * FROM accounts WHERE acc_no=%s", (acc_no,))
+    if cursor.fetchone():
+        print("Account already exists!")
+        return
+
+✔️ What this does?
+
+Check if account already exists
+
+If yes → stop
+
+If no → continue
+
+Insert account into SQL
+name = input("Enter name: ")
+balance = float(input("Enter starting balance: "))
+
+cursor.execute("INSERT INTO accounts VALUES (%s, %s, %s)",
+               (acc_no, name, balance))
+db.commit()
+print("Account Created!")
+
+✔️ Explanation:
+
+Takes user input
+
+Inserts that into SQL table
+
+db.commit() saves the data permanently
+
+➡️ Without commit → data won’t save.
+
+
+
+⭐ 5. View Account
+cursor.execute("SELECT * FROM accounts WHERE acc_no=%s", (acc_no,))
+data = cursor.fetchone()
+
+
+This finds the account in the database
+
+data[1] → name
+
+data[2] → balance
+
+If not found → show error
+
+Simple.
+
+
+
+
+⭐ 6. Deposit Money
+cursor.execute("SELECT balance FROM accounts WHERE acc_no=%s", (acc_no,))
+data = cursor.fetchone()
+
+
+Get current balance
+
+amount = float(input("Enter amount to deposit: "))
+new_balance = data[0] + amount
+
+
+Add money to balance
+
+cursor.execute("UPDATE accounts SET balance=%s WHERE acc_no=%s",
+               (new_balance, acc_no))
+db.commit()
+
+
+Update SQL table
+
+Save changes
+
+➡️ Deposit complete ✔️
+
+
+
+⭐ 7. Withdraw Money
+
+Almost same as deposit but:
+
+if amount > data[0]:
+    print("Not enough balance!")
+    return
+
+
+Prevents negative balance
+
+Then updates the new balance.
+
+➡️ Works like real ATM.
+
+
+
+⭐ 8. MENU
+def menu():
+    while True:
+        print("1. Create Account")
+        print("2. View Account")
+        print("3. Deposit")
+        print("4. Withdraw")
+        print("5. Exit")
+
+
+Shows choices continuously
+
+choice = input("Enter choice: ")
+
+
+Calls correct function based on choice
+
+
+
+
+⭐ 9. Start Program
+if login():
+    menu()
+
+
+Only if login is correct → open banking system.
