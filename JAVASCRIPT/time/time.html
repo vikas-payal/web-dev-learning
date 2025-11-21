@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>current</title>
+</head>
+<style>
+    body{
+        display: flex;
+        justify-content: center;
+        align-items: center;        
+    }
+    .container{
+        margin-top: 150px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        width: 600px;
+        height: 350px;
+        background-color: #ccd5ae;
+        border-radius: 40px;
+        font-size: 50px;
+        gap: 20px;
+    }
+</style>
+<body>
+        <div class="container">
+
+            <div class="date"></div>
+            <div class="time"></div>
+            
+        </div>
+    
+    <script>
+        const date = new Date();
+        const todayDate= date.getDate();
+        const year=date.getFullYear();
+        const month=date.getMonth()
+        const hours = date.getHours();
+        const minutes = date.getMinutes();
+        const second=date.getSeconds();
+
+        console.log(`${hours}:${minutes}`);
+        
+        const TIME=document.querySelector(".time");
+        const DATE=document.querySelector(".date");
+
+        DATE.innerHTML=` Date :  ${todayDate} : ${month} : ${year}` ;
+        TIME.innerHTML=` Time : ${hours} : ${minutes} : ${second}  `;
+
+    </script>
+</body>
+</html>
