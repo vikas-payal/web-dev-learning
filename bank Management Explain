@@ -1,210 +1,289 @@
-⭐ Why we use SQL in this Banking Project?
-
-SQL (database) is used to store and manage data permanently.
-
-Without SQL → data is stored in Python dictionary → lost every time program closes.
-With SQL → data is saved in database → never lost, even after shutdown.
-
-
-⭐ 1. Connecting to MySQL Database
-db = mysql.connector.connect(
-    host="localhost",
-    user="root",
-    password="",
-    database="bankdb"
-)
-cursor = db.cursor()
-
-✔️ What happens here?
-
-Python connects to your MySQL server.
-
-host="localhost" → your own computer
-
-user="root" → main MySQL user
-
-password="" → leave empty or write your MySQL password
-
-database="bankdb" → your database name
-
-cursor → used to run SQL commands (SELECT, INSERT, UPDATE etc.)
-
-➡️ Think of cursor as a pen that writes into the database.
-
-
-
-⭐ 2. LOGIN Function
-def login():
-    print("=== LOGIN ===")
-    username = input("Enter username: ")
-    password = input("Enter password: ")
-
-    cursor.execute("SELECT * FROM users WHERE username=%s AND password=%s",
-                   (username, password))
-    if cursor.fetchone():
-        print("Login Successful!\n")
-        return True
-    else:
-        print("Login Failed! Wrong username or password.\n")
-        return False
-
-✔️ What this does?
-
-Asks for username & password
-
-Checks in SQL table users
-
-If found → login success
-
-If not → login fail
-
-➡️ Simple. Like Instagram login but very basic.
-
-
-
-⭐ 3. Create Accounts Table
-cursor.execute("""
-CREATE TABLE IF NOT EXISTS accounts (
-    acc_no VARCHAR(10) PRIMARY KEY,
-    name VARCHAR(50),
-    balance DOUBLE
-)
-""")
-
-✔️ Why?
-
-Creates accounts table only once
-
-Stores account number, name, balance
-
-IF NOT EXISTS → prevents duplicate table error
-
-➡️ Python makes sure your table exists before doing anything.
-
-
-
-⭐ 4. Create Account Function
-def create_account():
-    acc_no = input("Enter new account number: ")
-
-    cursor.execute("SELECT * FROM accounts WHERE acc_no=%s", (acc_no,))
-    if cursor.fetchone():
-        print("Account already exists!")
-        return
-
-✔️ What this does?
-
-Check if account already exists
-
-If yes → stop
-
-If no → continue
-
-Insert account into SQL
-name = input("Enter name: ")
-balance = float(input("Enter starting balance: "))
-
-cursor.execute("INSERT INTO accounts VALUES (%s, %s, %s)",
-               (acc_no, name, balance))
-db.commit()
-print("Account Created!")
-
-✔️ Explanation:
-
-Takes user input
-
-Inserts that into SQL table
-
-db.commit() saves the data permanently
-
-➡️ Without commit → data won’t save.
-
-
-
-⭐ 5. View Account
-cursor.execute("SELECT * FROM accounts WHERE acc_no=%s", (acc_no,))
-data = cursor.fetchone()
-
-
-This finds the account in the database
-
-data[1] → name
-
-data[2] → balance
-
-If not found → show error
-
-Simple.
-
-
-
-
-⭐ 6. Deposit Money
-cursor.execute("SELECT balance FROM accounts WHERE acc_no=%s", (acc_no,))
-data = cursor.fetchone()
-
-
-Get current balance
-
-amount = float(input("Enter amount to deposit: "))
-new_balance = data[0] + amount
-
-
-Add money to balance
-
-cursor.execute("UPDATE accounts SET balance=%s WHERE acc_no=%s",
-               (new_balance, acc_no))
-db.commit()
-
-
-Update SQL table
-
-Save changes
-
-➡️ Deposit complete ✔️
-
-
-
-⭐ 7. Withdraw Money
-
-Almost same as deposit but:
-
-if amount > data[0]:
-    print("Not enough balance!")
-    return
-
-
-Prevents negative balance
-
-Then updates the new balance.
-
-➡️ Works like real ATM.
-
-
-
-⭐ 8. MENU
-def menu():
+import mysql.connector
+from mysql.connector import Error
+from datetime import datetime
+
+# Database connection details (update with your MySQL credentials)
+DB_HOST = 'localhost'
+DB_USER = 'root'  # Default for XAMPP
+DB_PASSWORD = ''  # Leave blank if no password
+DB_NAME = 'bank_db'
+
+class BankManagement:
+    def __init__(self):
+        self.connection = None
+        self.logged_in_account = None  # Tracks logged-in account
+        self.connect_db()
+
+    def connect_db(self):
+        try:
+            self.connection = mysql.connector.connect(
+                host=DB_HOST,
+                user=DB_USER,
+                password=DB_PASSWORD,
+                database=DB_NAME
+            )
+            if self.connection.is_connected():
+                print("Connected to MySQL database.")
+                self.create_tables()  # Create tables if they don't exist
+        except Error as e:
+            print(f"Error connecting to database: {e}")
+
+    def create_tables(self):
+        cursor = self.connection.cursor()
+        # Accounts table with password
+        create_accounts_query = """
+        CREATE TABLE IF NOT EXISTS accounts (
+            account_no INT PRIMARY KEY AUTO_INCREMENT,
+            name VARCHAR(100) NOT NULL,
+            password VARCHAR(100) NOT NULL,
+            balance FLOAT DEFAULT 0.0
+        );
+        """
+        # Transactions table for history
+        create_transactions_query = """
+        CREATE TABLE IF NOT EXISTS transactions (
+            id INT PRIMARY KEY AUTO_INCREMENT,
+            account_no INT,
+            type VARCHAR(50),  -- e.g., 'Deposit', 'Withdraw', 'Transfer'
+            amount FLOAT,
+            date_time DATETIME DEFAULT CURRENT_TIMESTAMP,
+            FOREIGN KEY (account_no) REFERENCES accounts(account_no)
+        );
+        """
+        cursor.execute(create_accounts_query)
+        cursor.execute(create_transactions_query)
+        self.connection.commit()
+        cursor.close()
+
+    def create_account(self, name, password, initial_balance=0.0):
+        if initial_balance < 0:
+            print("Initial balance cannot be negative.")
+            return
+        cursor = self.connection.cursor()
+        insert_query = "INSERT INTO accounts (name, password, balance) VALUES (%s, %s, %s)"
+        cursor.execute(insert_query, (name, password, initial_balance))
+        self.connection.commit()
+        account_no = cursor.lastrowid
+        # Log initial deposit if balance > 0
+        if initial_balance > 0:
+            self.log_transaction(account_no, 'Deposit', initial_balance)
+        cursor.close()
+        print(f"Account created successfully! Account No: {account_no}")
+        return account_no
+
+    def login(self, account_no, password):
+        cursor = self.connection.cursor()
+        cursor.execute("SELECT name FROM accounts WHERE account_no = %s AND password = %s", (account_no, password))
+        result = cursor.fetchone()
+        cursor.close()
+        if result:
+            self.logged_in_account = account_no
+            print(f"Logged in as {result[0]} (Account {account_no}).")
+            return True
+        else:
+            print("Invalid account number or password.")
+            return False
+
+    def logout(self):
+        self.logged_in_account = None
+        print("Logged out.")
+
+    def log_transaction(self, account_no, trans_type, amount):
+        cursor = self.connection.cursor()
+        insert_query = "INSERT INTO transactions (account_no, type, amount) VALUES (%s, %s, %s)"
+        cursor.execute(insert_query, (account_no, trans_type, amount))
+        self.connection.commit()
+        cursor.close()
+
+    def deposit(self, amount):
+        if not self.logged_in_account:
+            print("Please log in first.")
+            return
+        if amount <= 0:
+            print("Deposit amount must be positive.")
+            return
+        cursor = self.connection.cursor()
+        cursor.execute("SELECT balance FROM accounts WHERE account_no = %s", (self.logged_in_account,))
+        result = cursor.fetchone()
+        if result:
+            new_balance = result[0] + amount
+            cursor.execute("UPDATE accounts SET balance = %s WHERE account_no = %s", (new_balance, self.logged_in_account))
+            self.connection.commit()
+            self.log_transaction(self.logged_in_account, 'Deposit', amount)
+            print(f"Deposited {amount}. New balance: {new_balance}")
+        cursor.close()
+
+    def withdraw(self, amount):
+        if not self.logged_in_account:
+            print("Please log in first.")
+            return
+        if amount <= 0:
+            print("Withdrawal amount must be positive.")
+            return
+        cursor = self.connection.cursor()
+        cursor.execute("SELECT balance FROM accounts WHERE account_no = %s", (self.logged_in_account,))
+        result = cursor.fetchone()
+        if result and result[0] >= amount:
+            new_balance = result[0] - amount
+            cursor.execute("UPDATE accounts SET balance = %s WHERE account_no = %s", (new_balance, self.logged_in_account))
+            self.connection.commit()
+            self.log_transaction(self.logged_in_account, 'Withdraw', amount)
+            print(f"Withdrew {amount}. New balance: {new_balance}")
+        else:
+            print("Insufficient balance or account not found.")
+        cursor.close()
+
+    def check_balance(self):
+        if not self.logged_in_account:
+            print("Please log in first.")
+            return
+        cursor = self.connection.cursor()
+        cursor.execute("SELECT balance FROM accounts WHERE account_no = %s", (self.logged_in_account,))
+        result = cursor.fetchone()
+        cursor.close()
+        if result:
+            print(f"Your balance: {result[0]}")
+
+    def transfer(self, to_account, amount):
+        if not self.logged_in_account:
+            print("Please log in first.")
+            return
+        if amount <= 0:
+            print("Transfer amount must be positive.")
+            return
+        if self.logged_in_account == to_account:
+            print("Cannot transfer to the same account.")
+            return
+        cursor = self.connection.cursor()
+        # Check sender's balance
+        cursor.execute("SELECT balance FROM accounts WHERE account_no = %s", (self.logged_in_account,))
+        from_result = cursor.fetchone()
+        # Check receiver's account
+        cursor.execute("SELECT balance FROM accounts WHERE account_no = %s", (to_account,))
+        to_result = cursor.fetchone()
+        if from_result and to_result and from_result[0] >= amount:
+            new_from_balance = from_result[0] - amount
+            new_to_balance = to_result[0] + amount
+            cursor.execute("UPDATE accounts SET balance = %s WHERE account_no = %s", (new_from_balance, self.logged_in_account))
+            cursor.execute("UPDATE accounts SET balance = %s WHERE account_no = %s", (new_to_balance, to_account))
+            self.connection.commit()
+            self.log_transaction(self.logged_in_account, 'Transfer Out', amount)
+            self.log_transaction(to_account, 'Transfer In', amount)
+            print(f"Transferred {amount} to account {to_account}.")
+        else:
+            print("Insufficient balance or invalid receiver account.")
+        cursor.close()
+
+    def view_transaction_history(self):
+        if not self.logged_in_account:
+            print("Please log in first.")
+            return
+        cursor = self.connection.cursor()
+        cursor.execute("SELECT type, amount, date_time FROM transactions WHERE account_no = %s ORDER BY date_time DESC", (self.logged_in_account,))
+        results = cursor.fetchall()
+        cursor.close()
+        if results:
+            print("Transaction History:")
+            for row in results:
+                print(f"{row[2]} - {row[0]}: {row[1]}")
+        else:
+            print("No transactions found.")
+
+    def apply_interest(self, rate=0.05):  # 5% monthly interest
+        if not self.logged_in_account:
+            print("Please log in first.")
+            return
+        cursor = self.connection.cursor()
+        cursor.execute("SELECT balance FROM accounts WHERE account_no = %s", (self.logged_in_account,))
+        result = cursor.fetchone()
+        if result:
+            interest = result[0] * rate
+            new_balance = result[0] + interest
+            cursor.execute("UPDATE accounts SET balance = %s WHERE account_no = %s", (new_balance, self.logged_in_account))
+            self.connection.commit()
+            self.log_transaction(self.logged_in_account, 'Interest', interest)
+            print(f"Applied {rate*100}% interest: {interest}. New balance: {new_balance}")
+        cursor.close()
+
+    def close_account(self):
+        if not self.logged_in_account:
+            print("Please log in first.")
+            return
+        cursor = self.connection.cursor()
+        cursor.execute("SELECT balance FROM accounts WHERE account_no = %s", (self.logged_in_account,))
+        result = cursor.fetchone()
+        if result and result[0] == 0:
+            cursor.execute("DELETE FROM transactions WHERE account_no = %s", (self.logged_in_account,))
+            cursor.execute("DELETE FROM accounts WHERE account_no = %s", (self.logged_in_account,))
+            self.connection.commit()
+            print("Account closed successfully.")
+            self.logout()
+        else:
+            print("Cannot close account: Balance must be zero.")
+        cursor.close()
+
+    def close_connection(self):
+        if self.connection.is_connected():
+            self.connection.close()
+            print("Database connection closed.")
+
+# Menu-driven interface
+def main():
+    bank = BankManagement()
     while True:
-        print("1. Create Account")
-        print("2. View Account")
-        print("3. Deposit")
-        print("4. Withdraw")
-        print("5. Exit")
+        if not bank.logged_in_account:
+            print("\n--- Bank Management System ---")
+            print("1. Create Account")
+            print("2. Login")
+            print("3. Exit")
+            choice = input("Enter choice: ")
+            if choice == '1':
+                name = input("Enter name: ")
+                password = input("Enter password: ")
+                balance = float(input("Enter initial balance: "))
+                bank.create_account(name, password, balance)
+            elif choice == '2':
+                acc = int(input("Enter account no: "))
+                pwd = input("Enter password: ")
+                bank.login(acc, pwd)
+            elif choice == '3':
+                bank.close_connection()
+                break
+            else:
+                print("Invalid choice.")
+        else:
+            print("\n--- Logged In Menu ---")
+            print("1. Deposit")
+            print("2. Withdraw")
+            print("3. Check Balance")
+            print("4. Transfer Money")
+            print("5. View Transaction History")
+            print("6. Apply Interest")
+            print("7. Close Account")
+            print("8. Logout")
+            choice = input("Enter choice: ")
+            if choice == '1':
+                amt = float(input("Enter deposit amount: "))
+                bank.deposit(amt)
+            elif choice == '2':
+                amt = float(input("Enter withdrawal amount: "))
+                bank.withdraw(amt)
+            elif choice == '3':
+                bank.check_balance()
+            elif choice == '4':
+                to_acc = int(input("Enter receiver account no: "))
+                amt = float(input("Enter transfer amount: "))
+                bank.transfer(to_acc, amt)
+            elif choice == '5':
+                bank.view_transaction_history()
+            elif choice == '6':
+                bank.apply_interest()
+            elif choice == '7':
+                bank.close_account()
+            elif choice == '8':
+                bank.logout()
+            else:
+                print("Invalid choice.")
 
-
-Shows choices continuously
-
-choice = input("Enter choice: ")
-
-
-Calls correct function based on choice
-
-
-
-
-⭐ 9. Start Program
-if login():
-    menu()
-
-
-Only if login is correct → open banking system.
+if __name__ == "__main__":
+    main()
